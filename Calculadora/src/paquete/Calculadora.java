@@ -9,10 +9,11 @@ public class Calculadora extends javax.swing.JFrame {
     private float primerNumero;
     private float segundoNumero;
     private String operador;
-    
+
     public Calculadora() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Calculadora");
     }
 
     /**
@@ -48,6 +49,7 @@ public class Calculadora extends javax.swing.JFrame {
         jButton5.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -301,57 +303,102 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnCeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCeroActionPerformed
         // CERO
-        this.casilla.setText(this.casilla.getText()+"0");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("0");
+        } else {
+        this.casilla.setText(this.casilla.getText() + "0");
+        }
     }//GEN-LAST:event_btnCeroActionPerformed
 
     private void btnPuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPuntoActionPerformed
         // PUNTO
-        this.casilla.setText(this.casilla.getText()+".");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText(".");
+        }
+        if (!this.casilla.getText().contains(".")) {
+            this.casilla.setText(this.casilla.getText() + ".");
+        }
     }//GEN-LAST:event_btnPuntoActionPerformed
 
     private void btnUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnoActionPerformed
         //UNO
-        this.casilla.setText(this.casilla.getText()+"1");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("1");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "1");
+        }
     }//GEN-LAST:event_btnUnoActionPerformed
 
     private void btnDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDosActionPerformed
         // DOS
-        this.casilla.setText(this.casilla.getText()+"2");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("2");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "2");
+        }
     }//GEN-LAST:event_btnDosActionPerformed
 
     private void btnTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTresActionPerformed
         // TRES
-        this.casilla.setText(this.casilla.getText()+"3");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("3");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "3");
+        }
     }//GEN-LAST:event_btnTresActionPerformed
 
     private void btnCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuatroActionPerformed
         // CUATRO
-        this.casilla.setText(this.casilla.getText()+"4");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("4");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "4");
+        }
     }//GEN-LAST:event_btnCuatroActionPerformed
 
     private void btnCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCincoActionPerformed
         // CINCO
-        this.casilla.setText(this.casilla.getText()+"5");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("5");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "5");
+        }
     }//GEN-LAST:event_btnCincoActionPerformed
 
     private void btnSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeisActionPerformed
         // SEIS
-        this.casilla.setText(this.casilla.getText()+"6");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("6");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "6");
+        }
     }//GEN-LAST:event_btnSeisActionPerformed
 
     private void btnSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSieteActionPerformed
         // SIETE
-        this.casilla.setText(this.casilla.getText()+"7");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("7");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "7");
+        }
     }//GEN-LAST:event_btnSieteActionPerformed
 
     private void btnOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOchoActionPerformed
         // OCHO
-        this.casilla.setText(this.casilla.getText()+"8");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("8");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "8");
+        }
     }//GEN-LAST:event_btnOchoActionPerformed
 
     private void btnNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNueveActionPerformed
         // NUEVE
-        this.casilla.setText(this.casilla.getText()+"9");
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("9");
+        } else {
+            this.casilla.setText(this.casilla.getText() + "9");
+        }
     }//GEN-LAST:event_btnNueveActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
@@ -361,45 +408,80 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
         // MAS
-        this.primerNumero = Float.parseFloat(this.casilla.getText());
-        this.operador = "+";
-        this.casilla.setText("");
+        if (!this.casilla.getText().isEmpty()) {
+            this.primerNumero = Float.parseFloat(this.casilla.getText());
+            this.operador = "+";
+            this.casilla.setText("");
+        }
     }//GEN-LAST:event_btnMasActionPerformed
 
     private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
         // IGUAL
-        this.segundoNumero = Float.parseFloat(this.casilla.getText());
-        
-        switch(operador){
-            case "+" : this.casilla.setText(Float.toString(this.primerNumero+this.segundoNumero));break;
-            case "-" : this.casilla.setText(Float.toString(this.primerNumero-this.segundoNumero));break;
-            case "*" : this.casilla.setText(Float.toString(this.primerNumero*this.segundoNumero));break;
-            case "/" : this.casilla.setText(Float.toString(this.primerNumero/this.segundoNumero));break;
-            default: this.casilla.setText("ERROR");
-            
+        if (this.casilla.getText().equals("ERROR")) {
+            this.casilla.setText("");
+        }
+        if (this.operador != null) {//Si el operador es null entonces no ha ingresado el segundo numero
+            if (!this.casilla.getText().isEmpty()) {
+                this.segundoNumero = Float.parseFloat(this.casilla.getText());
+
+                switch (operador) {
+                    case "+":
+                        this.casilla.setText(sinCero(this.primerNumero + this.segundoNumero));
+                        break;
+                    case "-":
+                        this.casilla.setText(sinCero(this.primerNumero - this.segundoNumero));
+                        break;
+                    case "*":
+                        this.casilla.setText(sinCero(this.primerNumero * this.segundoNumero));
+                        break;
+                    case "/":
+                        if (this.segundoNumero != 0) {
+                            this.casilla.setText(sinCero(this.primerNumero / this.segundoNumero));
+                            break;
+                        } 
+                    default:
+                        this.casilla.setText("ERROR");
+                }
+            }
         }
     }//GEN-LAST:event_btnIgualActionPerformed
 
     private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
         // MENOS
-        this.primerNumero = Float.parseFloat(this.casilla.getText());
-        this.operador = "-";
-        this.casilla.setText("");
+        if (!this.casilla.getText().isEmpty()) {
+            this.primerNumero = Float.parseFloat(this.casilla.getText());
+            this.operador = "-";
+            this.casilla.setText("");
+        }
     }//GEN-LAST:event_btnMenosActionPerformed
 
     private void btnMultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiActionPerformed
         // MULTIPLICAR
-        this.primerNumero = Float.parseFloat(this.casilla.getText());
-        this.operador = "*";
-        this.casilla.setText("");
+        if (!this.casilla.getText().isEmpty()) {
+            this.primerNumero = Float.parseFloat(this.casilla.getText());
+            this.operador = "*";
+            this.casilla.setText("");
+        }
     }//GEN-LAST:event_btnMultiActionPerformed
 
     private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
         // DIVIDIR
-        this.primerNumero = Float.parseFloat(this.casilla.getText());
-        this.operador = "/";
-        this.casilla.setText("");
+        if (!this.casilla.getText().isEmpty()) {
+            this.primerNumero = Float.parseFloat(this.casilla.getText());
+            this.operador = "/";
+            this.casilla.setText("");
+        }
     }//GEN-LAST:event_btnDividirActionPerformed
+
+    public String sinCero(float resultado) {
+        String retorno = "";
+        retorno = Float.toString(resultado);
+
+        if (resultado % 1 == 0) {
+            retorno = retorno.substring(0, retorno.length() - 2);
+        }
+        return retorno;
+    }
 
     /**
      * @param args the command line arguments
