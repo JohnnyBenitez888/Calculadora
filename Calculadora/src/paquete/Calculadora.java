@@ -67,12 +67,27 @@ public class Calculadora extends javax.swing.JFrame {
 
         btnDividir.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDividir.setText("/");
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDividirActionPerformed(evt);
+            }
+        });
 
         btnMenos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnMenos.setText("-");
+        btnMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenosActionPerformed(evt);
+            }
+        });
 
         btnMulti.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnMulti.setText("*");
+        btnMulti.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiActionPerformed(evt);
+            }
+        });
 
         btnSiete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSiete.setText("7");
@@ -156,6 +171,11 @@ public class Calculadora extends javax.swing.JFrame {
 
         btnIgual.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnIgual.setText("=");
+        btnIgual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIgualActionPerformed(evt);
+            }
+        });
 
         btnCero.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnCero.setText("0");
@@ -342,7 +362,44 @@ public class Calculadora extends javax.swing.JFrame {
     private void btnMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMasActionPerformed
         // MAS
         this.primerNumero = Float.parseFloat(this.casilla.getText());
+        this.operador = "+";
+        this.casilla.setText("");
     }//GEN-LAST:event_btnMasActionPerformed
+
+    private void btnIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIgualActionPerformed
+        // IGUAL
+        this.segundoNumero = Float.parseFloat(this.casilla.getText());
+        
+        switch(operador){
+            case "+" : this.casilla.setText(Float.toString(this.primerNumero+this.segundoNumero));break;
+            case "-" : this.casilla.setText(Float.toString(this.primerNumero-this.segundoNumero));break;
+            case "*" : this.casilla.setText(Float.toString(this.primerNumero*this.segundoNumero));break;
+            case "/" : this.casilla.setText(Float.toString(this.primerNumero/this.segundoNumero));break;
+            default: this.casilla.setText("ERROR");
+            
+        }
+    }//GEN-LAST:event_btnIgualActionPerformed
+
+    private void btnMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenosActionPerformed
+        // MENOS
+        this.primerNumero = Float.parseFloat(this.casilla.getText());
+        this.operador = "-";
+        this.casilla.setText("");
+    }//GEN-LAST:event_btnMenosActionPerformed
+
+    private void btnMultiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiActionPerformed
+        // MULTIPLICAR
+        this.primerNumero = Float.parseFloat(this.casilla.getText());
+        this.operador = "*";
+        this.casilla.setText("");
+    }//GEN-LAST:event_btnMultiActionPerformed
+
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        // DIVIDIR
+        this.primerNumero = Float.parseFloat(this.casilla.getText());
+        this.operador = "/";
+        this.casilla.setText("");
+    }//GEN-LAST:event_btnDividirActionPerformed
 
     /**
      * @param args the command line arguments
